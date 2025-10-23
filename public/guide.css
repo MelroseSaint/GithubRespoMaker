@@ -1,0 +1,110 @@
+/* Guide-specific styles */
+:root {
+  --bg: #0b1020;
+  --panel: #12172a;
+  --accent: #6ea8fe;
+  --accent-2: #a3d0ff;
+  --text: #e7ecf7;
+  --muted: #aeb6c7;
+  --border: #223058;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #0b1020 0%, #0f152b 60%, #101535 100%);
+}
+
+header {
+  background: linear-gradient(90deg, #101a3a, #0f1734);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-link { color: var(--text); opacity: 0.9; }
+.nav-link:hover { opacity: 1; }
+
+.dropdown .dropdown-toggle {
+  background: #1b2547;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.dropdown .dropdown-menu {
+  background: #0f1734;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.dropdown .dropdown-menu a { color: var(--text); }
+.dropdown .dropdown-menu a:hover { background: #18224a; }
+
+/* Layout */
+.guide-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+
+.guide-toc {
+  position: sticky;
+  top: 90px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  height: fit-content;
+}
+.guide-toc h2 {
+  font-size: 16px;
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+#toc {
+  display: grid;
+  gap: 6px;
+}
+.toc-link {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.toc-link:hover { background: #18224a; }
+.toc-link.level-h1 { font-weight: 700; }
+.toc-link.level-h2 { padding-left: 12px; }
+.toc-link.level-h3 { padding-left: 24px; opacity: 0.85; }
+
+.guide-content {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.guide-content h1 {
+  font-size: 32px;
+  margin-top: 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+.guide-content h2 { font-size: 24px; margin-top: 24px; }
+.guide-content h3 { font-size: 18px; margin-top: 18px; }
+.guide-content p { color: var(--muted); }
+.guide-content code, .guide-content pre {
+  background: #0b1228;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.guide-content pre { padding: 14px; overflow: auto; }
+.guide-content code { padding: 2px 6px; }
+.guide-content ul { padding-left: 1.2rem; }
+
+footer {
+  background: transparent;
+  border-top: 1px solid var(--border);
+}

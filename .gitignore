@@ -29,3 +29,7 @@ Thumbs.db
 *.tar
 *.tar.gz
 pocketbase.exe
+
+# Ignore nested repos or unrelated drop-ins
+vibe-coding-starter-pack-3d-multiplayer/
+gihhub-respogen/

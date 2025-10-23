@@ -11,6 +11,26 @@
     <div class="container">
         <h1>🚀 RespoGen</h1>
         <p>Generate GitHub-ready repositories with professional structure and documentation</p>
+        <div class="header-actions">
+          <div class="dropdown" id="guideDropdown">
+            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Guide ▾</button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/docs/UserGuide.md" target="_blank" rel="noopener">User Guide</a></li>
+              <li><a href="/docs/UserGuide.md#using-the-api" target="_blank" rel="noopener">API Usage</a></li>
+              <li><a href="/docs/UserGuide.md#advanced-configuration-details" target="_blank" rel="noopener">Advanced Options</a></li>
+            </ul>
+          </div>
+        </div>
+        <nav class="header-right">
+            <div class="dropdown">
+                <button class="dropdown-toggle">Guide ▾</button>
+                <div class="dropdown-menu">
+                    <a href="/guide.html#quick-start">User Guide</a>
+                    <a href="/guide.html#using-the-api">API Usage</a>
+                    <a href="/guide.html#advanced-configuration-details">Advanced Options</a>
+                </div>
+            </div>
+        </nav>
     </div>
   </header>
 
@@ -34,11 +54,54 @@
                 <div class="form-group">
                     <label for="template">GitHub-Ready Template:</label>
                     <select id="template">
-                        <option value="react-app">🔵 React Application - Modern React app with best practices</option>
-                        <option value="node-api">🟢 Node.js API - RESTful API with Express and MongoDB</option>
-                        <option value="fullstack">🟣 Full-Stack App - React frontend + Node.js backend</option>
+                        <optgroup label="Frontend Frameworks">
+                            <option value="react-app">⚛️ React Application - Modern React app with hooks & best practices</option>
+                            <option value="vue-app">💚 Vue.js Application - Vue 3 with Composition API & Vuex</option>
+                            <option value="nextjs-app">⚫ Next.js Application - Full-stack React with SSR & API routes</option>
+                        </optgroup>
+                        <optgroup label="Backend APIs">
+                            <option value="node-api">🟢 Node.js API - RESTful API with Express & MongoDB</option>
+                            <option value="python-flask">🐍 Python Flask API - RESTful API with SQLAlchemy & testing</option>
+                        </optgroup>
+                        <optgroup label="Full-Stack Applications">
+                            <option value="fullstack">🟣 Full-Stack App - React frontend + Node.js backend</option>
+                        </optgroup>
+                        <optgroup label="DevOps & Containerization">
+                            <option value="docker-node">🐳 Dockerized Node.js - Node.js app with Docker & nginx</option>
+                        </optgroup>
                     </select>
                     <small>Each template includes proper folder structure, documentation, and configuration files</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>🔧 Advanced Configuration:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="includeGitHooks" checked>
+                            <span>Git Hooks (pre-commit, pre-push)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="includeCICD" checked>
+                            <span>CI/CD Workflows (GitHub Actions)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="includeDocker">
+                            <span>Docker Configuration (Dockerfile, docker-compose)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="includeTesting" checked>
+                            <span>Testing Setup (Jest, Pytest, etc.)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="includeLinting" checked>
+                            <span>Code Quality (ESLint, Prettier, etc.)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="includeVSCode">
+                            <span>VS Code Configuration (.vscode/settings.json)</span>
+                        </label>
+                    </div>
+                    <small>Enhance your repository with professional development tools</small>
                 </div>
             </div>
         </div>

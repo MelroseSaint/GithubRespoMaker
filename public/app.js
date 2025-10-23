@@ -63,7 +63,7 @@ function addSnippet() {
     const snippetItem = document.createElement('div');
     snippetItem.className = 'snippet-item';
     snippetItem.innerHTML = `
-        <input type="text" placeholder="Filename (e.g., main.js)" class="snippet-filename" />
+        <input type="text" placeholder="Filename (e.g., utils.js)" class="snippet-filename" />
         <textarea placeholder="Paste your code here..." class="snippet-content"></textarea>
         <button type="button" onclick="removeSnippet(this)">Remove</button>
     `;
@@ -71,9 +71,39 @@ function addSnippet() {
 }
 
 function removeSnippet(button) {
-    button.parentElement.remove();
+    const snippetItem = button.closest('.snippet-item');
+    if (snippetItem) {
+        snippetItem.remove();
+    }
 }
 
+// Dropdown: Guide menu toggle
+(function setupGuideDropdown() {
+    const dropdown = document.getElementById('guideDropdown');
+    if (!dropdown) return;
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    const menu = dropdown.querySelector('.dropdown-menu');
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', () => {
+        if (dropdown.classList.contains('open')) {
+            dropdown.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close when a menu link is clicked
+    menu.addEventListener('click', () => {
+        dropdown.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    });
+})();
 // Generate repository function
 async function generateZip() {
     const formData = new FormData();
@@ -107,9 +137,20 @@ async function generateZip() {
     const description = descriptionInput.value.trim() || '';
     const template = templateSelect.value;
     
+    // Collect advanced configuration options
+    const advancedConfig = {
+        includeGitHooks: document.getElementById('includeGitHooks').checked,
+        includeCICD: document.getElementById('includeCICD').checked,
+        includeDocker: document.getElementById('includeDocker').checked,
+        includeTesting: document.getElementById('includeTesting').checked,
+        includeLinting: document.getElementById('includeLinting').checked,
+        includeVSCode: document.getElementById('includeVSCode').checked
+    };
+    
     formData.append('repoName', repoName);
     formData.append('description', description);
     formData.append('template', template);
+    formData.append('advancedConfig', JSON.stringify(advancedConfig));
     
     try {
         // Update status
