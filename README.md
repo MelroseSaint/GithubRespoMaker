@@ -1,4 +1,4 @@
-# GithubRespoMaker (RespoGen)
+# GithubRespoMaker
 
 A simple Node.js + Express app that generates a GitHub-ready repository structure from uploaded files/ZIPs and streams the generated project as a ZIP download. Includes a lightweight web UI in `public/`.
 
@@ -10,8 +10,18 @@ A simple Node.js + Express app that generates a GitHub-ready repository structur
 - Project output excluded from version control (`.gitignore` covers `output/`, `node_modules/`, logs, env files)
 
 ## Requirements
+- Git
 - Node.js `>= 18`
 - npm `>= 9` (or compatible)
+
+## Quick Start
+```bash
+git clone https://github.com/MelroseSaint/GithubRespoMaker.git
+cd GithubRespoMaker
+npm install
+npm start
+# open http://localhost:3000
+```
 
 ## Getting Started
 
@@ -94,7 +104,7 @@ RespoGen/
 └── server.js
 ```
 
-> Note: You may see a stray directory `gihhub-respogen/` in local workspace—this appears unrelated. The primary project root is `RespoGen/`.
+
 
 ## Configuration
 - Environment variables: none required by default
